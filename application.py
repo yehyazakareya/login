@@ -54,7 +54,7 @@ def index():
     return render_template("index.html", table=table, ls=ls, total=total, cash=cash)
 
 if __name__ == "__main__":
-    app.run()#(debug=False,host='0.0.0.0')
+    app.run(debug=False,host='0.0.0.0')
 
 
 
