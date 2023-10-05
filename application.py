@@ -35,9 +35,6 @@ Session(app)
 # Configure CS50 Library to use SQLite database
 db = SQL("sqlite:///finance.db")
 
-# Make sure API key is set
-if not os.environ.get("API_KEY"):
-    raise RuntimeError("API_KEY not set")
 
 
 @app.route("/")
@@ -55,6 +52,10 @@ def index():
     cash = db.execute("SELECT cash FROM users WHERE id = :id",
                           id=session["user_id"])
     return render_template("index.html", table=table, ls=ls, total=total, cash=cash)
+
+if __name__ == "__main__":
+    app.run()#(debug=False,host='0.0.0.0')
+
 
 
 @app.route("/buy", methods=["GET", "POST"])
