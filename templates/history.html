@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+
+{% block title %}
+    HISTORY
+{% endblock %}
+
+{% block main %}
+<table style="width:100%">
+    <tr>
+        <th>Symbol</th>
+        <th>Shares</th>
+        <th>Price</th>
+        <th>Transacted</th>
+    </tr>
+{% for row in  tab1 %}
+<tr>
+    <td>{{ row["symbol"] }} </td>
+    <td>{{ row["shares"] }}</td>
+    <td>{{ row["price"] }}</td>
+    <td>{{ row ["date"] }}</td>
+</tr>
+{% endfor %}
+{% for row in tab2 %}
+<tr>
+    <td>{{ row["symbol"] }} </td>
+    <td>{{ row["shares"] }}</td>
+    <td>{{ row["price"] }}</td>
+    <td>{{ row ["date"] }}</td>
+</tr>
+{% endfor %}
+
+</table>
+{% endblock %}
